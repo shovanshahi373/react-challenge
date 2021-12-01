@@ -9,7 +9,7 @@ const index = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="profile:id" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
         <Route
           path="*"
           element={

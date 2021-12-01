@@ -37,21 +37,13 @@ function App() {
   };
 
   const validInput = useMemo(
-    () => userValue.name && userValue.email,
+    () => !!(userValue.name && userValue.email),
     [userValue]
   );
 
-  useEffect(() => {
-    if (isDarkValue) {
-      document.querySelector("html").classList.add("dark-mode");
-    } else {
-      document.querySelector("html").classList.remove("dark-mode");
-    }
-  }, [isDarkValue]);
-
   const onSubmit = (e) => {
     e.preventDefault();
-    if (validInput) return;
+    if (!validInput) return;
     window.location.href = `/profile/${userValue.name}`;
   };
 
@@ -133,7 +125,7 @@ function App() {
             Save
           </button>
           <button
-            className={`button is-link ${!validInput && "disabled"}`}
+            className={`button is-link ${!validInput ? "disabled" : ""}`}
             onClick={onSubmit}
             type="button"
           >

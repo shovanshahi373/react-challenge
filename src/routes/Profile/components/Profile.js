@@ -11,26 +11,32 @@ const Profile = () => {
   }, [user, id]);
 
   return (
-    <section>
+    <div className="app">
       {isValid ? (
-        <>
-          <header>welcome to the your profile page, {user.name}!</header>
+        <section className="section">
+          <header className="title">
+            welcome to the your profile page, {user.name}!
+          </header>
           <div>
             <p>currently signed in as:: {user.email}</p>
           </div>
-        </>
+        </section>
       ) : (
         <section>
           <p>cannot authenticate!</p>
         </section>
       )}
 
-      <div>
-        <button className="button" type="button">
-          <a href="/">Home</a>
-        </button>
-      </div>
-    </section>
+      <section className="section">
+        <div className="buttons">
+          <button className="button is-link is-primary" type="button">
+            <a href="/" style={{ color: "#fff" }}>
+              Home
+            </a>
+          </button>
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -12,6 +12,14 @@ export default function App({ children }) {
   const [isDark] = useStorage("THEME", value);
   const [user] = useStorage("USER", userValue);
 
+  useEffect(() => {
+    if (value) {
+      document.querySelector("html").classList.add("dark-mode");
+    } else {
+      document.querySelector("html").classList.remove("dark-mode");
+    }
+  }, [value]);
+
   // set initial state based on persisted state
   useEffect(() => {
     dispatcher(
