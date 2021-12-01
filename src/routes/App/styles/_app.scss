@@ -1,0 +1,51 @@
+.app {
+  padding: 10%;
+  max-width: 1000px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  box-sizing: content-box;
+
+  &__dark-mode-btn {
+    border: 0;
+    background: transparent;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .buttons {
+    position: relative;
+    $overlay-color: rgba(0, 0, 0, 0.5);
+
+    & > .button {
+      height: 30px;
+      width: 100px;
+
+      &.disabled {
+        border-color: $overlay-color;
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $overlay-color;
+          cursor: not-allowed;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
